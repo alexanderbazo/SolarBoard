@@ -1,0 +1,79 @@
+{
+    "rules": {
+        "comma-dangle": [
+            2, 
+            "always"
+        ],
+        "indent": [
+            2,
+            2,
+            {"SwitchCase": 1}
+        ],
+        "max-nested-callbacks": [
+            2,
+            3
+        ],
+        "no-magic-numbers": [
+            1,
+            { "ignore": [0,1,-1], "ignoreArrayIndexes": true }
+        ],
+        "no-multiple-empty-lines": [
+            2, 
+            {"max": 1}
+        ],
+        "no-unused-vars": [
+            2,
+            {args: "none"}
+        ],
+        "one-var": [
+            2,
+            "always"
+        ],
+        "quotes": [
+            2,
+            "double"
+        ],
+        "semi": [
+            2,
+            "always"
+        ],
+        "yoda": [
+            2,
+            "never"
+        ],
+        "block-scoped-var": 2,
+        "camelcase": 1,
+        "consistent-return": 2,
+        "curly": 2,
+        "default-case": 2,
+        "eqeqeq": 2,
+        "guard-for-in": 2,
+        "no-alert": 2,
+        "no-else-return": 2,
+        "no-empty-function": 2,
+        "no-eval": 2,
+        "no-eq-null": 2,
+        "no-extend-native": 1,
+        "no-extra-bind": 2,
+        "no-loop-func": 2,
+        "no-multi-spaces": 2,
+        "no-new": 2,
+        "no-new-func": 2,
+        "no-new-wrappers": 2,
+        "no-unused-expressions": 2,
+        "no-useless-concat": 2,
+        "no-undef-init": 2,
+        "no-underscore-dangle": 2,
+        "no-param-reassign": 2,
+        "no-self-compare": 2,
+        "no-void": 2,
+        "no-with": 2,
+        "strict": 2,
+        "vars-on-top": 2
+    },
+    "env": {
+        "es6": true,
+        "browser": true
+    },
+    "extends": "eslint:recommended"
+}

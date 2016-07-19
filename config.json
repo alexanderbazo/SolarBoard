@@ -1,0 +1,9 @@
+{
+	"port": {{PORT}},
+	"site": [
+		{
+			"id": {{SITE_ID}},
+			"key": {{SITE_KEY}}
+		}
+	],
+}

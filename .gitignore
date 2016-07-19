@@ -1,1 +1,13 @@
+# notes and docs
 docs
+
+# dev
+node_modules
+
+# test
+test
+
+# project
+solarboard.sublime-project
+solarboard.sublime-workspace
+
