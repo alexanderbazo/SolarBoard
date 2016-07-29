@@ -24,35 +24,17 @@ module.exports = function(grunt) {
       lib: {
         files: [{
           expand: true,
-          flatte: true,
           cwd: "lib/client/ui/data-widgets-js/css/",
           src: "data-widgets-js.css",
           dest: "test/ui/lib/"
+        }, {
+          expand: true,
+          cwd: "lib/client/ui/data-widgets-js/icons/",
+          src: "*.ttf",
+          dest: "test/ui/lib"
         }]
       }
     },
-    /*
-    uglify: {
-      options: {
-      build: {
-        files: {
-          "build/js/app.min.js": ["src/js/ConnectionVisualizations.js", "src/js/MainController.js", "src/js/JSONLoader.js", "src/js/DataHandler.js", "src/js/MainView.js", "src/js/ArtistNetworkView.js", "src/js/ArtworkViewController.js", "src/js/ArtworkLinearConnectionView.js", "src/js/ArtworkTimelineNetworkView.js", "src/js/ArtistToArtistInfluencesView.js", "src/js/init.js", ],
-          "build/js/bundle.min.js": ["dependencies/lib/jquery-2.1.4.js", "dependencies/lib/vis.js", "dependencies/lib/bootstrap.js", "dependencies/lib/cytoscape.js", "dependencies/lib/jquery.tooltipster.js", "dependencies/lib/icheck.js", "dependencies/lib/underscore.js", "dependencies/lib/owl.carousel.min.js", "dependencies/lib/easeljs-0.8.2.min.js", "dependencies/lib/preloadjs-0.6.2.min.js", "dependencies/lib/vex.combined.min.js", "dependencies/lib/jquery.qtip.min.js", "dependencies/lib/cytoscape-qtip.js"],
-        }
-      }
-    },
-    cssmin: {
-      options: {
-        "keepSpecialComments": 0,
-      },
-      build: {
-        files: {
-          "build/res/css/styles.min.css": "src/css/styles.css",
-          "build/res/css/bundle.min.css": "tmp/bundle.css",
-        },
-      }
-    },
-    */
   });
 
 

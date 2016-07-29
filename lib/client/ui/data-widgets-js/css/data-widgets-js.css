@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./MaterialIcons-Regular.ttf") format("truetype");
+}
+
 .data-widgets-widget-list {
     display: block;
     margin: 0;
@@ -15,13 +22,14 @@
     margin: 10px;
     padding: 10px;
     border-style: solid;
+    border-color: rgb(81, 77, 87);
+    border-width: 2px;
     border-radius: 5px;
-    border-color: rgb(255, 255, 255);
-    background: rgb(255, 255, 255);
-    background: rgb(255, 255, 255);
+    background: rgb(242, 242, 243);
+    /*
     -moz-box-shadow: 3px 3px 5px 6px #ccc;
     -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-    box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;*/
 }
 
 
@@ -73,7 +81,7 @@
     font-size: 25px;
     text-align: center;
     color: rgb(0,0,0);
-    background: rgb(255, 255, 255) !important;
+    background: rgb(242, 242, 243) !important;
 }
 
 .data-widgets-gauge-graph-value.percentage:after {
@@ -102,7 +110,7 @@
     top: 100px;
     font-size: 25px;
     color: rgb(0,0,0);
-    background: rgb(255, 255, 255) !important;
+    background: rgb(242, 242, 243) !important;
     text-align: center;
 }
 
@@ -115,8 +123,64 @@
     text-align: center;
     font-size: 12px;
     color: rgb(0, 0, 0);
-    background: rgb(255, 255, 255) !important;
+    background: rgb(242, 242, 243) !important;
     text-align: center;
+}
+
+.data-widgets-status-text {
+    position: absolute;
+    display: block;
+    bottom: 5px;
+    left: 5px; 
+    font-size: 12px;
+}
+
+.data-widgets-status-icon {
+    position: absolute;
+    display: block;
+    bottom: 5px;
+    right: 5px; 
+    height: 45px;
+    width: 45px;
+    line-height: 45px;
+    text-align: center;
+    font-size: 35px;
+    font-family: "Material Icons";
+}
+
+.data-widgets-status-type-full:after {
+    content: "\E1A4";
+    color: rgb(0, 102, 47);
+}
+
+.data-widgets-status-type-charging:after {
+    content: "\E1A3";
+    color: rgb(205, 111, 0);
+}
+
+.data-widgets-status-type-discharging:after {
+    content: "\E19C";
+    color: rgb(205, 46, 0);
+}
+
+.data-widgets-status-type-grid-selling:after {
+    content: "\E227";
+    color: rgb(0, 102, 47);
+}
+
+.data-widgets-status-type-grid-buying:after {
+    content: "\E25C";
+    color: rgb(205, 46, 0);
+}
+
+.data-widgets-status-type-pv-idle:after {
+    content: "\E888";
+    color: rgb(180, 180, 180);
+}
+
+.data-widgets-status-type-pv-active:after {
+    content: "\E430";
+    color: rgb(255, 139, 0);
 }
 
 .data-widgets-colors-blue {
