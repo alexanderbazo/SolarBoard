@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./Roboto-Regular.ttf") format("truetype");
+}
+
+.info-widgets-weather-widget {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 500px;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+    border-radius: 0 0 0 25px;
+    border-style: solid;
+    border-color: rgb(81, 77, 87);
+    border-width: 2px;
+    background-color: rgb(81, 77, 87);
+    font-family: "Roboto", sans-serif;
+}
+
+.info-widgets-weather-widget-clock {
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    width: 500px;
+    height: 50px;
+    text-align: right;
+    font-size: 50px;
+    line-height: 50px;
+    color: #FFF;
+    text-shadow: 0px 2px 3px #555;
+    opacity: .9;
+}
+
+.info-widgets-weather-widget-date {
+    display: block;
+    position: absolute;
+    top: 65px;
+    right: 15px;
+    width: 500px;
+    height: 25px;
+    text-align: right;
+    font-size: 25px;
+    line-height: 25px;
+    color: #FFF;
+    text-shadow: 0px 2px 3px #555;
+    opacity: .9;
+}
+
+.info-widgets-weather-widget-weather-information {
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    width: 500px;
+    height: 90px;
+    color: #FFF;
+}
+
+.info-widgets-weather-widget-icon {
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: url("./weather-widget-icons.png") no-repeat;
+}
+
+.info-widgets-weather-widget-icon-thunderstorm {
+    background-position: -400px -240px;
+}
+
+.info-widgets-weather-widget-icon-drizzle {
+    background-position: -480px -240px;
+}
+
+.info-widgets-weather-widget-icon-rain {
+    background-position: -560px -240px;
+}
+
+.info-widgets-weather-widget-icon-snow {
+    background-position: -160px -320px;
+}
+
+.info-widgets-weather-widget-icon-clear {
+    background-position: 0 -240px;
+}
+
+.info-widgets-weather-widget-icon-clouds {
+    background-position: -320px -320px;
+}
+
+.info-widgets-weather-widget-temp {
+    display: block;
+    position: absolute;
+    left: 80px;
+    top: 5px;
+    font-size: 40px;
+}
+
+.info-widgets-weather-widget-temp:after {
+    content: "°C";
+}
+
+.info-widgets-weather-widget-status {
+    display: block;
+    position: absolute;
+    left: 80px;
+    top: 55px;
+    font-size: 15px;
+}

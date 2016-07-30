@@ -1,11 +1,14 @@
 # notes and docs
-docs
+_docs
 
 # dev
 node_modules
+build
+_tmp
 
-# test
-test
+
+# config
+_config.json
 
 # project
 solarboard.sublime-project

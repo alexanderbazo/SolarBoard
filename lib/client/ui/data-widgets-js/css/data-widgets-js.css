@@ -26,15 +26,9 @@
     border-width: 2px;
     border-radius: 5px;
     background: rgb(242, 242, 243);
-    /*
-    -moz-box-shadow: 3px 3px 5px 6px #ccc;
-    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-    box-shadow: 3px 3px 5px 6px #ccc;*/
 }
 
-
-
-.data-widgets-graph {
+.data-widgets-gauge-graph {
     position: relative;
     display: block;
     width: 160px;
@@ -121,7 +115,36 @@
     width: 200px;
     top: 140px;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    background: rgb(242, 242, 243) !important;
+    text-align: center;
+}
+
+.data-widgets-bar-widget {
+    width: 444px;
+}
+
+.data-widgets-bar-widget-title {
+    position: absolute;
+    display: block;
+    height: 20px;
+    width: 444px;
+    top: 10px;
+    font-size: 25px;
+    color: rgb(0,0,0);
+    background: rgb(242, 242, 243) !important;
+    text-align: center;
+}
+
+.data-widgets-bar-widget-description {
+    position: absolute;
+    display: block;
+    height: 20px;
+    width: 444px;
+    top: 45px;
+    text-align: center;
+    font-size: 14px;
     color: rgb(0, 0, 0);
     background: rgb(242, 242, 243) !important;
     text-align: center;
@@ -132,7 +155,7 @@
     display: block;
     bottom: 5px;
     left: 5px; 
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .data-widgets-status-icon {
@@ -148,17 +171,17 @@
     font-family: "Material Icons";
 }
 
-.data-widgets-status-type-full:after {
+.data-widgets-status-type-battery-idle:after {
     content: "\E1A4";
     color: rgb(0, 102, 47);
 }
 
-.data-widgets-status-type-charging:after {
+.data-widgets-status-type-battery-charging:after {
     content: "\E1A3";
-    color: rgb(205, 111, 0);
+    color: rgb(0, 102, 47);
 }
 
-.data-widgets-status-type-discharging:after {
+.data-widgets-status-type-battery-discharging:after {
     content: "\E19C";
     color: rgb(205, 46, 0);
 }
@@ -174,13 +197,13 @@
 }
 
 .data-widgets-status-type-pv-idle:after {
-    content: "\E888";
+    content: "\E033";
     color: rgb(180, 180, 180);
 }
 
 .data-widgets-status-type-pv-active:after {
     content: "\E430";
-    color: rgb(255, 139, 0);
+    color: rgb(0, 102, 47);
 }
 
 .data-widgets-colors-blue {
@@ -201,6 +224,11 @@
 .data-widgets-colors-orange{
     background: rgb(205, 111, 0);
     color: rgb(205, 111, 0);
+}
+
+.data-widget-color-purple {
+    background: rgb(26, 24, 29);
+    color: rgb(26, 24, 29);
 }
 
 

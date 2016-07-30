@@ -1,0 +1,44 @@
+html {
+    height: 1280px;
+    height: 800px;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 1280px;
+    height: 800px;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(26, 24, 29);
+    font-family: "Arial";
+    color: #333;
+}
+
+.device {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 800px;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(26, 24, 29);
+}
+
+.widget-container-stats {
+    display: block;
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    width: 500px;
+    height: 736px;
+}
+
+.widget-container-weather {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

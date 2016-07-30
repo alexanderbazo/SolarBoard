@@ -1,9 +1,13 @@
 {
-	"port": {{PORT}},
-	"site": [
-		{
-			"id": {{SITE_ID}},
-			"key": {{SITE_KEY}}
-		}
-	],
+  "port": {{PORT}},
+  "www": "{{PATH_TO_CLIENT}}",
+  "sites": [{
+    "id": "{{SITE_ID}}",
+  	"weatherKey": "{{OPEN_WEATHER_API_KEY}}",
+    "key": "{{SITE_API_KEY}}",
+    "language": "{{LOCATION_FOR_UI_TEXT}}",
+    "location": {
+    	"city": "{{INITAL_SITE_LOCATION}}"
+    }
+  }]
 }

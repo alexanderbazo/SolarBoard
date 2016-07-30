@@ -1,23 +1,28 @@
 {
   "name": "solarboard",
   "version": "1.0.0",
-  "description": "",
+  "description": "A dashboard for solar edge systems",
+  "repository": "https://github.com/alexanderbazo/solarboard",
   "main": "index.js",
-  "directories": {
-    "doc": "docs",
-    "test": "test"
+  "dependencies": {
+    "express": "^4.14.0",
+    "promise": "^7.1.1",
+    "request": "^2.74.0",
+    "xmlbuilder": "^8.2.2"
   },
-  "dependencies": {},
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-uglify": "^2.0.0"
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-exec": "^1.0.0",
+    "grunt-replace": "^1.0.1"
   },
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Alexander Bazo <alexanderbazo@googlemail.com>",
+  "license": "MIT"
 }
