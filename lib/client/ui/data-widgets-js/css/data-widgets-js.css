@@ -123,14 +123,17 @@
 
 .data-widgets-bar-widget {
     width: 444px;
+    height: 200px;
 }
 
 .data-widgets-bar-widget-title {
     position: absolute;
     display: block;
     height: 20px;
-    width: 444px;
+    width: 424px;
     top: 10px;
+    margin: 0;
+    padding: 0;
     font-size: 25px;
     color: rgb(0,0,0);
     background: rgb(242, 242, 243) !important;
@@ -141,13 +144,69 @@
     position: absolute;
     display: block;
     height: 20px;
-    width: 444px;
+    width: 424px;
     top: 45px;
+    margin: 0;
+    padding: 0;
     text-align: center;
     font-size: 14px;
     color: rgb(0, 0, 0);
     background: rgb(242, 242, 243) !important;
     text-align: center;
+}
+
+.data-widgets-bar-widget-bars {
+    position: absolute;
+    display: block;
+    width: 424px;
+    top: 67px;
+    margin: 0;
+    padding: 10px 0 0 0;
+    list-style-type: none;
+    background: rgb(242, 242, 243) !important;
+}
+
+.data-widgets-bar-widget-container {
+    display: block;
+    position: relative;
+    float: left;
+    width: 424px;
+    margin-bottom: 30px;
+    background: rgb(242, 242, 243) !important;
+}
+
+.data-widgets-bar-widget-label {
+    display: inline-block;
+    position: absolute;
+    width: 100px;
+    height: 18px;
+    line-height: 18px;
+    left: 0;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: right;
+}
+
+.data-widgets-bar-widget-bar {
+    display: inline-block;
+    position: absolute;
+    width: 0;
+    margin-top: 1px;
+    height: 16px;
+    left: 110px;
+    background-color: rgb(220,120,20);
+}
+
+.data-widgets-bar-widget-value{
+    display: inline-block;
+    position: absolute;
+    width: 75px;
+    height: 18px;
+    right: 0;
+    line-height: 18px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: right;
 }
 
 .data-widgets-status-text {

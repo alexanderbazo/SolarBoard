@@ -1,21 +1,15 @@
 /* eslint-env browser */
-/* global DataWidgets, InfoWidgets, SolarBoard, Time */
+/* global SolarBoard, Time */
 
 var App = App || {};
-App.SolarBoard = (function() {
+App = (function() {
   "use strict";
 
   var that = {},
     sb,
-    widgets,
-    battery,
-    power,
-    load,
-    week,
-    grid,
-    weather;
+    view;
 
-  function onTick(clockEl, dateEl, date) {
+  function onTick() {
     if (!sb) {
       return;
     }
@@ -24,78 +18,116 @@ App.SolarBoard = (function() {
     });
   }
 
+  function getEnergyLabel(type) {
+    switch(type) {
+      case "Purchased":
+        return "Gekauft";
+      case "Consumption":
+        return "Verbraucht";
+      case "Production":
+        return "Produziert";
+      case "FeedIn":
+        return "Eingespeist";
+    }
+    return "Unkown";
+  }
+
+  function getEneryColor(type) {
+    switch(type) {
+      case "Purchased":
+        return "blue";
+      case "Consumption":
+        return "red";
+      case "Production":
+        return "orange";
+      case "FeedIn":
+        return "green";
+    }
+    return "Unkown";
+  }
+
+  function getEneryPosition(type) {
+    switch(type) {
+      case "Purchased":
+        return 3;
+      case "Consumption":
+        return 1;
+      case "Production":
+        return 0;
+      case "FeedIn":
+        return 2;
+    }
+    return -1;
+  }
+
+  function getWeekData(energyDetails) {
+    var meterIndex, label, color, position, valueIndex, valueSum, data = [];
+    for (meterIndex = 0; meterIndex < energyDetails.meters.length; meterIndex++) {
+      if(energyDetails.meters[meterIndex].type === "SelfConsumption") {
+        continue;
+      }
+      label = getEnergyLabel(energyDetails.meters[meterIndex].type);
+      color = getEneryColor(energyDetails.meters[meterIndex].type);
+      position = getEneryPosition(energyDetails.meters[meterIndex].type);
+      valueSum = 0;
+      for (valueIndex = 0; valueIndex < energyDetails.meters[meterIndex].values
+        .length; valueIndex++) {
+        valueSum += (energyDetails.meters[meterIndex].values[valueIndex].value || 0);
+      }
+      valueSum = parseInt((valueSum/1000).toFixed(0));
+      data[position] = { label: label, value: valueSum, unit: "K" + energyDetails.unit, color: color};
+    }
+    return data;
+  }
+
   function onDataAvailable(data) {
+    console.log(data);
     var peakPower = data.peakPower,
-      currentPower = data.siteCurrentPowerFlow.PV.currentPower,
-      currentLoad = data.siteCurrentPowerFlow.LOAD.currentPower,
-      currentGridPower = data.siteCurrentPowerFlow.GRID.currentPower,
+      currentPower = parseFloat(data.siteCurrentPowerFlow.PV.currentPower.toFixed(1)),
+      currentLoad = parseFloat(data.siteCurrentPowerFlow.LOAD.currentPower.toFixed(1)),
+      currentGridPower = parseFloat(data.siteCurrentPowerFlow.GRID.currentPower.toFixed(
+        2)),
       currentBatteryLevel = data.siteCurrentPowerFlow.STORAGE.chargeLevel,
+      currentPowerStatus = "pv-" + data.siteCurrentPowerFlow.PV.status.toLowerCase(),
+      currentBatteryStatus = "battery-" + data.siteCurrentPowerFlow.STORAGE
+      .status
+      .toLowerCase(),
+      currentGridStatus = (currentGridPower > 0) ? "grid-selling" :
+      "grid-buying",
       lastPowerFlowUpdateDelta = Date.now() - data.lastUpdateOfPowerFlowInformation,
       lastEnergyDetailsUpdateDelta = Date.now() - data.lastUpdateOfEnergyInformation,
-      updateDeltaInMinutes = (lastPowerFlowUpdateDelta / 60000).toFixed(0),
+      updateDeltaInMinutes = parseInt((lastPowerFlowUpdateDelta / 60000).toFixed(0)),
       energyUpdateInMinutes = (lastEnergyDetailsUpdateDelta / 60000).toFixed(
-        0);
-    console.log(data);
-    week.setStatusText("Aktualisiert vor " + energyUpdateInMinutes + " min");
+        0),
+      currentTemp = parseInt(data.currentWeather.main.temp.toFixed(0)),
+      currentWeatherStatus = data.currentWeather.weather[0].description,
+      currentWeatherCode = data.currentWeather.weather[0].id,
+      weekData = getWeekData(data.energyDetails);
 
-    power.setValue(currentPower.toFixed(1), peakPower);
-    power.setStatusIcon("pv-" + data.siteCurrentPowerFlow.PV.status.toLowerCase());
-    power.setStatusText("Aktualisiert vor " + updateDeltaInMinutes + " min");
-
-    battery.setValue(currentBatteryLevel);
-    battery.setStatusIcon("battery-" + data.siteCurrentPowerFlow.STORAGE.status
-      .toLowerCase());
-    battery.setStatusText("Aktualisiert vor " + updateDeltaInMinutes +
-      " min");
-
-    load.setValue(currentLoad.toFixed(1), peakPower);
-    load.setStatusText("Aktualisiert vor " + updateDeltaInMinutes + " min");
-
-    grid.setValue(Math.abs(currentGridPower.toFixed(2)), peakPower);
-    grid.setStatusIcon("");
-    grid.setStatusText("Aktualisiert vor " + updateDeltaInMinutes + " min");
-    if (currentGridPower > 0) {
-      grid.setStatusIcon("grid-selling");
-    } else if (currentGridPower < 0) {
-      grid.setStatusIcon("grid-buying");
+    console.log(weekData);
+    if (currentGridPower === 0) {
+      currentGridStatus = "";
     }
-    weather.setWeatherInformation({
-      temp: data.currentWeather.main.temp.toFixed(0),
-      status: data.currentWeather.weather[0].description,
-      id: data.currentWeather.weather[0].id,
-    });
+    view.updateWeekWidget(weekData, energyUpdateInMinutes);
+    view.updatePowerWidget(currentPower, peakPower, currentPowerStatus,
+      updateDeltaInMinutes);
+    view.updateBatteryWidget(currentBatteryLevel, undefined,
+      currentBatteryStatus, updateDeltaInMinutes);
+    view.updateLoadWidget(currentLoad, peakPower, "", updateDeltaInMinutes);
+    view.updateGridWidget(Math.abs(currentGridPower), peakPower,
+      currentGridStatus, updateDeltaInMinutes);
+    view.updateWeatherWidget(currentTemp, currentWeatherStatus,
+      currentWeatherCode);
   }
 
   function init() {
-    initWidgets();
+    initView();
     initClient(@@SITE_ID);
-    Time.startTicker(60000, onTick.bind(this));
+    Time.startTicker(300000, onTick.bind(this));
   }
 
-  function initWidgets() {
-    widgets = DataWidgets.createContainer(document.querySelector(
-      ".widget-container-stats"));
-    battery = new DataWidgets.Widgets.GaugeWidget("Batterie",
-      "Aktueller Batteriereserve", "percentage", 0, "green");
-    power = new DataWidgets.Widgets.GaugeWidget("Leistung",
-      "Aktuelle Leistung der PV-Anlage", "kw", 0, "orange");
-    load = new DataWidgets.Widgets.GaugeWidget("Verbrauch",
-      "Aktueller Gesamtverbrauch des Haushalts", "kw", 0, "red");
-    grid = new DataWidgets.Widgets.GaugeWidget("Netz",
-      "Aktuelle Last zwischen Netz und Anlage", "kw", 0,
-      "blue");
-    week = new DataWidgets.Widgets.BarWidget("Werte der letzten Woche",
-      "Produktions- und Verbrauchswerte der letzen 7 Tage", "purple");
-    widgets.addWidget(power);
-    widgets.addWidget(load);
-    widgets.addWidget(battery);
-    widgets.addWidget(grid);
-    widgets.addWidget(week);
-    widgets.render();
-
-    weather = new InfoWidgets.Widgets.WeatherWidget();
-    InfoWidgets.renderWidgetIn(weather, document.querySelector(
-      ".widget-container-weather"));
+  function initView() {
+    view = App.View.init();
   }
 
   function initClient(siteID) {
@@ -108,5 +140,3 @@ App.SolarBoard = (function() {
   that.init = init;
   return that;
 }());
-
-App.SolarBoard.init();

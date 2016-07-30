@@ -38,7 +38,7 @@ module.exports = function(grunt) {
       www: {
         files: {
           "build/www/lib/bundle.min.js": ["_tmp/lib/time-utils.js", "_tmp/lib/data-widgets.js", "_tmp/lib/info-widgets.js", "_tmp/lib/solarboard-client.js",],
-          "build/www/app.min.js": ["_tmp/app.js"],
+          "build/www/app.min.js": ["_tmp/app.js", "client/src/js/view.js", "client/src/js/start.js",],
         },
       },
     },
