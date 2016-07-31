@@ -42,3 +42,32 @@ body {
     top: 0;
     right: 0;
 }
+
+.fullscreen-button {
+    display: block;
+    position: absolute;
+    z-index: 9999;
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 30px;
+    background: rgb(242, 242, 243);
+    border-radius: 50%;
+    border-style: solid;
+    border-color: rgb(81, 77, 87);
+    border-width: 2px;
+    color: rgb(26, 24, 29);
+    font-family: "Material Icons";
+}
+
+.start-fullscreen:after {
+    content: "\E5D0";
+}
+
+.end-fullscreen:after {
+    content: "\E5D1";
+
+}

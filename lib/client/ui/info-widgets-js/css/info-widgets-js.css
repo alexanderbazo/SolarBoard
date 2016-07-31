@@ -112,3 +112,38 @@
     top: 55px;
     font-size: 15px;
 }
+
+.info-widgets-weather-widget-forecast-information {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 190px;
+    width: 300px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 30px;
+    color: #FFF;
+}
+
+.info-widgets-weather-widget-forecast-information.next {
+    top: 5px;
+}
+
+.info-widgets-weather-widget-forecast-information.tomorrow {
+    top: 35px;
+}
+
+.forecast-label {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+
+
+.forecast-status:after {
+    content: ",";
+}
+
+.forecast-temp:after {
+    content: "°C";
+}

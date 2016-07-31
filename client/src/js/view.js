@@ -22,17 +22,26 @@ App.View = (function() {
     widget.setStatusText(DEFAULT_UPDATE_TEXT.replace("{{DELTA}}", delta));
   }
 
-  function updateWeatherWidget(widget, temp, status, weatherCode) {
+  function updateWeatherWidget(widget, weather, forecast3h, forecastTomorrow) {
     widget.setWeatherInformation({
-      temp: temp,
-      status: status,
-      id: weatherCode,
+      temp: weather.temp,
+      status: weather.status,
+      id: weather.weatherCode,
+    });
+    widget.setForecastInformationForNext3Hours({
+      temp: forecast3h.temp,
+      status: forecast3h.status,
+    });
+    widget.setForecastInformationForTomorrow({
+      temp: forecastTomorrow.temp,
+      status: forecastTomorrow.status,
     });
   }
 
-  function updateBarWidget(widget, data, delta) {
+  function updateBarWidget(widget, data, delta, description) {
     widget.setStatusText(DEFAULT_UPDATE_TEXT.replace("{{DELTA}}", delta));
     widget.renderData(data);
+    widget.setDescription(description);
   }
 
   function init() {
@@ -48,16 +57,16 @@ App.View = (function() {
 
   function initWidgets() {
     battery = new DataWidgets.Widgets.GaugeWidget("Batterie",
-      "Aktueller Batteriereserve", "percentage", 0, "green");
+      "Aktueller Ladestand der Batterie", "percentage", 0, "green");
     power = new DataWidgets.Widgets.GaugeWidget("Leistung",
-      "Aktuelle Leistung der PV-Anlage", "kw", 0, "orange");
+      "Aktuelle Produktionsleistung der PV-Anlage", "kw", 0, "orange");
     load = new DataWidgets.Widgets.GaugeWidget("Verbrauch",
       "Aktueller Gesamtverbrauch des Haushalts", "kw", 0, "red");
     grid = new DataWidgets.Widgets.GaugeWidget("Netz",
       "Aktuelle Last zwischen Netz und Anlage", "kw", 0,
       "blue");
     week = new DataWidgets.Widgets.BarWidget("Werte der letzten Woche",
-      "Produktions- und Verbrauchswerte der letzen 7 Tage", "purple");
+      "", "purple");
     weather = new InfoWidgets.Widgets.WeatherWidget();
     widgets = DataWidgets.createContainer(document.querySelector(
       ".widget-container-stats"));
