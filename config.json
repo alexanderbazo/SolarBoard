@@ -1,5 +1,10 @@
 {
   "port": {{PORT}},
+  "http_auth": {
+    "enabled": {{true|false}},
+    "user": "{{HTTP_AUTH_USER}}",
+    "password": "{{HTTP_AUTH_PASSWORD}}"
+  },
   "www": "{{PATH_TO_CLIENT}}",
   "sites": [{
     "id": "{{SITE_ID}}",
