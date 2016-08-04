@@ -5,6 +5,7 @@ _docs
 node_modules
 build
 _tmp
+*.log
 
 
 # config
