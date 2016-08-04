@@ -5,6 +5,7 @@
   "repository": "https://github.com/alexanderbazo/solarboard",
   "main": "index.js",
   "dependencies": {
+    "basic-auth": "^1.0.4",
     "express": "^4.14.0",
     "open": "0.0.5",
     "promise": "^7.1.1",
