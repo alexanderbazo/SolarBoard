@@ -209,6 +209,54 @@
     text-align: right;
 }
 
+.data-widgets-graph-widget {
+    width: 716px;
+    height: 620px;
+    padding: 0;
+    border-style: none;
+    border-radius: 0;
+}
+
+.data-widgets-graph-canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 716px;
+    height: 620px;
+    background-color: #FFF;
+    z-index: 1;
+}
+
+.data-widgets-graph-widget-title {
+    position: absolute;
+    display: block;
+    height: 20px;
+    width: 716px;
+    top: 10px;
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+    color: rgb(0,0,0);
+    text-align: center;
+    z-index: 2;
+}
+
+.data-widgets-graph-widget-description {
+    position: absolute;
+    display: block;
+    height: 20px;
+    width: 716px;
+    top: 45px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    z-index: 2;
+}
+
 .data-widgets-status-text {
     position: absolute;
     display: block;

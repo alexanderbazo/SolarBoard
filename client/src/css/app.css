@@ -36,6 +36,13 @@ body {
     height: 736px;
 }
 
+.widget-container-graphs {
+    display: block;
+    position: absolute;
+    bottom: 35px;
+    left: 532px;
+}
+
 .widget-container-weather {
     display: block;
     position: absolute;

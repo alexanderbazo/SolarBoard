@@ -6,28 +6,8 @@ App = (function() {
   "use strict";
 
   var that = {},
-    fullscreenButton,
     sb,
     view;
-
-  function toggleFullScreen() {
-    var className = "fullscreen-button ",
-      fullscreenElement = document.querySelector(".device");
-    if (fullscreenButton.classList.contains("start-fullscreen")) {
-      className += "end-fullscreen";
-    } else {
-      className += "start-fullscreen";
-    }
-    fullscreenButton.className = className;
-
-    if (!document.fullscreenElement) {
-      fullscreenElement.webkitRequestFullScreen();
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      }
-    }
-  }
 
   function onTick() {
     if (!sb) {
@@ -204,6 +184,7 @@ App = (function() {
       temp: forecast3hTemp,
       status: forecast3hWeatherStatus,
     }, forecastTomorrow);
+    view.updateGraphWidget(data.energyDetails);
   }
 
   function init() {
@@ -213,8 +194,6 @@ App = (function() {
   }
 
   function initView() {
-    fullscreenButton = document.querySelector(".fullscreen-button");
-    fullscreenButton.addEventListener("click", toggleFullScreen);
     view = App.View.init();
   }
 

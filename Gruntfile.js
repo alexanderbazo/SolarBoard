@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     concat: {
       www: {
         files: {
-          "_tmp/lib/data-widgets.js": ["lib/client/ui/data-widgets-js/DataWidgets.js", "lib/client/ui/data-widgets-js/WidgetContainer.js", "lib/client/ui/data-widgets-js/GaugeWidget.js", "lib/client/ui/data-widgets-js/BarWidget.js", ],
+          "_tmp/lib/data-widgets.js": ["lib/client/ui/data-widgets-js/DataWidgets.js", "lib/client/ui/data-widgets-js/WidgetContainer.js", "lib/client/ui/data-widgets-js/GaugeWidget.js", "lib/client/ui/data-widgets-js/BarWidget.js", "lib/client/ui/data-widgets-js/GraphWidget.js", ],
           "_tmp/lib/info-widgets.js": ["lib/client/ui/info-widgets-js/InfoWidgets.js", "lib/client/ui/info-widgets-js/WeatherWidget.js", ],
           "_tmp/lib/time-utils.js": ["lib/client/time-utils-js/Time.js"],
           "_tmp/lib/solarboard-client.js": ["lib//client/api/solar-board-client-js/SolarBoard.js", "lib//client/api/solar-board-client-js/SolarBoardClient.js"],

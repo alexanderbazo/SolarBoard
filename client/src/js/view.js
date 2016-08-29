@@ -8,11 +8,13 @@ App.View = (function() {
   var that = {},
     DEFAULT_UPDATE_TEXT = "Aktualisiert vor {{DELTA}} min",
     widgets,
+    graphs,
     battery,
     power,
     load,
     week,
     grid,
+    statsGraph,
     weather;
 
   function updateGaugeWidget(widget, value, maxValue, icon, delta) {
@@ -22,7 +24,8 @@ App.View = (function() {
     widget.setStatusText(DEFAULT_UPDATE_TEXT.replace("{{DELTA}}", delta));
   }
 
-  function updateWeatherWidget(widget, weather, forecast3h, forecastTomorrow) {
+  function updateWeatherWidget(widget, weather, forecast3h,
+    forecastTomorrow) {
     widget.setWeatherInformation({
       temp: weather.temp,
       status: weather.status,
@@ -44,6 +47,11 @@ App.View = (function() {
     widget.setDescription(description);
   }
 
+  function updateGraphWidget(widget, data, description) {
+    widget.renderData(data);
+    widget.setDescription(description);
+  }
+
   function init() {
     initWidgets();
     that.updateBatteryWidget = updateGaugeWidget.bind(this, battery);
@@ -52,6 +60,7 @@ App.View = (function() {
     that.updateGridWidget = updateGaugeWidget.bind(this, grid);
     that.updateWeatherWidget = updateWeatherWidget.bind(this, weather);
     that.updateWeekWidget = updateBarWidget.bind(this, week);
+    that.updateGraphWidget = updateGraphWidget.bind(this, statsGraph);
     return that;
   }
 
@@ -68,14 +77,20 @@ App.View = (function() {
     week = new DataWidgets.Widgets.BarWidget("Werte der letzten Woche",
       "", "purple");
     weather = new InfoWidgets.Widgets.WeatherWidget();
+    statsGraph = new DataWidgets.Widgets.GraphWidget("Verlauf", "Verlauf",
+      "purple");
     widgets = DataWidgets.createContainer(document.querySelector(
       ".widget-container-stats"));
+    graphs = DataWidgets.createContainer(document.querySelector(
+      ".widget-container-graphs"));
     widgets.addWidget(power);
     widgets.addWidget(load);
     widgets.addWidget(battery);
     widgets.addWidget(grid);
     widgets.addWidget(week);
     widgets.render();
+    graphs.addWidget(statsGraph);
+    graphs.render();
     InfoWidgets.renderWidgetIn(weather, document.querySelector(
       ".widget-container-weather"));
   }
