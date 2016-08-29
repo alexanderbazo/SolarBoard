@@ -1,14 +1,9 @@
 /* eslint-env node */
 
 var shell = require("shelljs"),
-  os = require("os");
 (function() {
   "use strict";
   var that = {};
-
-  function getOperatingSystemType() {
-    return os.type();
-  }
 
   function update() {
     console.log("Checking for updates");
@@ -33,24 +28,6 @@ var shell = require("shelljs"),
     });
   }
 
-  function startClient() {
-    console.log("Starting client");
-    var os = getOperatingSystemType();
-    switch (os) {
-      case "Darwin":
-        shell.exec("open -a 'Google Chrome' http://localhost:8888");
-        break;
-      case "Windows_NT":
-        shell.exec("start chrome --kiosk http://localhost:8888");
-        break;
-      default:
-        console.log(
-          "Could not start client automattically. Open http://localhost:8888 in your browser."
-        );
-        break;
-    }
-  }
-
   function onServerClosed() {
 
   }
@@ -61,7 +38,6 @@ var shell = require("shelljs"),
       build();
     }
     startServer(onServerClosed);
-    setTimeout(startClient, 5000);
   }
 
   that.run = run;
