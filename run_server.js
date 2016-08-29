@@ -4,7 +4,7 @@ var shell = require("shelljs");
 
 try {
   process.chdir(process.argv[2]);
-  console.log("New directory: ' + process.cwd()");
+  console.log("New directory: " + process.cwd());
 } catch (err) {
   console.log("chdir: " + err);
   process.exit();
