@@ -15,3 +15,7 @@ SolarBoard is a javascript dashboard for [SolarEdge](http://www.solaredge.com/) 
 # Usage
 
 After both targets are build switch to `build` and run `npm start`. The client can be reached via `http://localhost:PORT`. The port can be specified in the config file.
+
+# Usage (deployed)
+
+Run 'node run.js` in the project directory.
