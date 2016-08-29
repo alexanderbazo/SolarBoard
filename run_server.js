@@ -1,6 +1,15 @@
 /* eslint-env node */
 
 var shell = require("shelljs");
+
+try {
+  process.chdir(process.argv[2]);
+  console.log("New directory: ' + process.cwd()");
+} catch (err) {
+  console.log("chdir: " + err);
+  process.exit();
+}
+
 (function() {
   "use strict";
   var that = {};
