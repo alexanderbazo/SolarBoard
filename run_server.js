@@ -1,6 +1,6 @@
 /* eslint-env node */
 
-var shell = require("shelljs"),
+var shell = require("shelljs");
 (function() {
   "use strict";
   var that = {};
