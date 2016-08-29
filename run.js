@@ -40,7 +40,9 @@ var shell = require("shelljs"),
         shell.exec("start chrome --kiosk http://localhost:8888");
         break;
       default:
-        console.log("Could not start client automattically. Open http://localhost:8888 in your browser.");
+        console.log(
+          "Could not start client automattically. Open http://localhost:8888 in your browser."
+        );
         break;
     }
   }
