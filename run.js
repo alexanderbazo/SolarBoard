@@ -40,7 +40,7 @@ var shell = require("shelljs"),
       case "Darwin":
         shell.exec("open -a 'Google Chrome' http://localhost:8888");
         break;
-      case "Widows_NT":
+      case "Windows_NT":
         shell.exec("start chrome --kiosk http://localhost:8888");
         break;
       default:
