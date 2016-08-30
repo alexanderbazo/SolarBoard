@@ -1,7 +1,7 @@
 /* eslint-env node */
 
 var shell = require("shelljs"),
-  APP_DIR = "";
+  APP_DIR = "{{APPLICATION_DIR}}";
 
 try {
   process.chdir(APP_DIR);
@@ -38,8 +38,8 @@ try {
     });
   }
 
-  function onServerClosed() {
-
+  function onServerStopped() {
+    console.log("Server stopped");
   }
 
   function run() {
@@ -47,7 +47,7 @@ try {
     if (wasUpdated) {
       build();
     }
-    startServer(onServerClosed);
+    startServer(onServerStopped);
   }
 
   that.run = run;
