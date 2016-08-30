@@ -18,4 +18,4 @@ After both targets are build switch to `build` and run `npm start`. The client c
 
 # Usage (deployed)
 
-Run 'node run.js` in the project directory
+Copy `run_server.js` and edit file to point to (absolute) project directory. Install copied file as startup service.
