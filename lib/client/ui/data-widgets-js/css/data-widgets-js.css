@@ -215,6 +215,7 @@
     padding: 0;
     border-style: none;
     border-radius: 0;
+    background-color: rgb(26, 24, 29);
 }
 
 .data-widgets-graph-canvas {
@@ -224,8 +225,56 @@
     left: 0;
     width: 716px;
     height: 620px;
-    background-color: #FFF;
+    background-color: rgb(26, 24, 29);
     z-index: 1;
+}
+
+.data-widgets-graph-legend {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    min-height: 100px;
+    margin: 10px;
+    padding: 10px;
+    border-style: solid;
+    border-color: rgb(81, 77, 87);
+    border-width: 2px;
+    border-radius: 5px;
+    background: rgb(81, 77, 87);
+    z-index: 2;
+    color: #FFF;
+}
+
+.data-widgets-graph-legend-title {
+    display: block;
+    margin-bottom: 1em;
+}
+
+.data-widgets-graph-legend-entry {
+    display: block;
+    width: 160px;
+    height: 20px;
+    position: relative;
+}
+
+.data-widgets-graph-legend-series-name {
+    display: block;
+    position: absolute;
+    left: 55px;
+    line-height: 16px;
+}
+
+.data-widgets-graph-legend-series-value {
+    display: block;
+    position: absolute;
+    left: 20px;
+    top: 6px;
+    font-size: 0.9em;
+    width: 20px;
+    height: 6px;
+    background-color: rgb(255,255,255);
 }
 
 .data-widgets-graph-widget-title {
@@ -237,7 +286,7 @@
     margin: 0;
     padding: 0;
     font-size: 25px;
-    color: rgb(0,0,0);
+    color: rgb(242, 242, 243);
     text-align: center;
     z-index: 2;
 }
@@ -252,7 +301,7 @@
     padding: 0;
     text-align: center;
     font-size: 14px;
-    color: rgb(0, 0, 0);
+    color: rgb(242, 242, 243);
     text-align: center;
     z-index: 2;
 }
@@ -333,11 +382,15 @@
     color: rgb(205, 111, 0);
 }
 
-.data-widget-color-purple {
+.data-widget-colors-purple {
     background: rgb(26, 24, 29);
     color: rgb(26, 24, 29);
 }
 
+.data-widget-colors-white {
+    background: rgb(255,255,255);
+    color: rgb(255,255,255);
+}
 
 
 

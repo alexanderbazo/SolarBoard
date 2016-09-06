@@ -48,8 +48,40 @@ App.View = (function() {
   }
 
   function updateGraphWidget(widget, data, description) {
-    widget.renderData(data);
-    widget.setDescription(description);
+    var i,
+      graphData = {
+        series: data.meters,
+        timeUnit: data.timeUnit,
+        title: "Verlauf der letzen Woche",
+        unit: data.unit,
+      };
+    for (i = 0; i < graphData.series.length; i++) {
+      switch (graphData.series[i].type) {
+        case "Production":
+          graphData.series[i].color = "orange";
+          graphData.series[i].label = "Produktion";
+          break;
+        case "Consumption":
+          graphData.series[i].color = "red";
+          graphData.series[i].label = "Verbrauch";
+          break;
+        case "Purchased":
+          graphData.series[i].color = "blue";
+          graphData.series[i].label = "Eingekauft";
+          break;
+        case "FeedIn":
+          graphData.series[i].color = "green";
+          graphData.series[i].label = "Eingespeist";
+          break;
+        case "SelfConsumption":
+          graphData.series[i].color = "white";
+          graphData.series[i].label = "Eigenverbrauch";
+          break;
+        default:
+          break;
+      }
+    }
+    widget.renderData(graphData);
   }
 
   function init() {
