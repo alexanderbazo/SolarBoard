@@ -106,7 +106,7 @@ module.exports = function(grunt) {
         },{
           expand: true,
           cwd: "_dependencies/",
-          src: "Chart-2-4-0.bundle.min.js",
+          src: "Chart.bundle.min.js",
           dest: "build/www/lib",
         },]
       },
