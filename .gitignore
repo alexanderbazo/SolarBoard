@@ -4,6 +4,7 @@ _docs
 # dev
 node_modules
 build
+_dependencies
 _tmp
 *.log
 
@@ -17,3 +18,5 @@ _config.json
 solarboard.sublime-project
 solarboard.sublime-workspace
 
+# meta
+.DS_Store

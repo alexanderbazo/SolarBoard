@@ -3,7 +3,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON("package.json"),
     clean: {
       www: "build/www",
-      srv: ["build/srv", "build/node_modules", "build/config.json", "build/package.json", "build/index.js", ],
+      srv: ["build/srv", "build/node_modules", "build/config.json", "build/package.json", "build/index.js", "build/lib" ],
       tmp: "_tmp",
     },
     concat: {
@@ -102,6 +102,11 @@ module.exports = function(grunt) {
           expand: true,
           cwd: "lib/client/ui/info-widgets-js/fonts/",
           src: "*.ttf",
+          dest: "build/www/lib",
+        },{
+          expand: true,
+          cwd: "_dependencies/",
+          src: "Chart-2-4-0.bundle.min.js",
           dest: "build/www/lib",
         },]
       },

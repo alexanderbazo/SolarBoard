@@ -133,7 +133,6 @@ App = (function() {
   }
 
   function onDataAvailable(data) {
-    console.log(data);
     var peakPower = data.peakPower,
       currentPower = parseFloat(data.siteCurrentPowerFlow.PV.currentPower.toFixed(
         1)),
